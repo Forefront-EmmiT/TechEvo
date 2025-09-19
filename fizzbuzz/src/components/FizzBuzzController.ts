@@ -16,14 +16,18 @@ export class FizzBuzzController {
     testRules(testNumber: number) {
         const matchedRule = ruleList.filter(rule => rule.condition(testNumber))
         const result = matchedRule.map(rule => rule.output).join('');
-        console.log(result || testNumber)
+        this.renderOutput(testNumber, result)
     }
 
     startCount(input: number)  {
         for (let i = 1; i <= input; ++i) {
             this.testRules(i);
         }
-    } 
+    }
+
+    renderOutput(testNumber: number, result: string) {
+        console.log(result || testNumber)
+    }
 
     addEventListeners() {
         if(this.form) {
