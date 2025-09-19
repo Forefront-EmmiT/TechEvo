@@ -1,5 +1,6 @@
 export class FormComponent {
     form: HTMLFormElement | null;
+    input: HTMLInputElement;
 
     constructor(container: HTMLElement) {
         container.innerHTML= `
@@ -8,6 +9,7 @@ export class FormComponent {
                 <button type="submit">Buzz this button to fizz this game up</button>
             </form>
         `;
-        this.form = container.querySelector<HTMLFormElement>('#fizzbuzz-form')
+        this.form = container.querySelector<HTMLFormElement>('#fizzbuzz-form');
+        this.input = container.querySelector<HTMLInputElement>('#input-number')!;
     }
 }

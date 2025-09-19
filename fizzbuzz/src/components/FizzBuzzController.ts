@@ -1,23 +1,26 @@
 export class FizzBuzzController {
     form: HTMLFormElement;
+    input: HTMLInputElement;
 
-    constructor(form: HTMLFormElement) {
+    constructor(form: HTMLFormElement, input: HTMLInputElement) {
         this.form = form;
+        this.input = input;
     }
     
     init() {
         this.addEventListeners();
     }
 
-    startCount()  {
-        console.log("1, 2, fizz..")
+    startCount(input: number)  {
+        console.log(input)
     } 
 
     addEventListeners() {
         if(this.form) {
             this.form.addEventListener('submit', (event) => {
                 event.preventDefault();
-                this.startCount();
+                const value = Number(this.input.value)
+                this.startCount(value);
             });
         }
      }
