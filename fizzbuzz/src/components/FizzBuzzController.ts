@@ -3,10 +3,18 @@ import { ruleList } from "../rules/rules"
 export class FizzBuzzController {
     form: HTMLFormElement;
     input: HTMLInputElement;
+    fizzCount: number;
+    buzzCount: number;
+    fizzBuzzCount: number;
+    numberCount: number;
 
     constructor(form: HTMLFormElement, input: HTMLInputElement) {
         this.form = form;
         this.input = input;
+        this.fizzCount = 0;
+        this.buzzCount = 0;
+        this.fizzBuzzCount = 0;
+        this.numberCount = 0;
     }
     
     init() {
@@ -16,17 +24,38 @@ export class FizzBuzzController {
     testRules(testNumber: number) {
         const matchedRule = ruleList.filter(rule => rule.condition(testNumber))
         const result = matchedRule.map(rule => rule.output).join('');
-        this.renderOutput(testNumber, result)
+        // this.renderOutput(testNumber, result)
+        this.countRuleMatches(testNumber, result)
     }
 
     startCount(input: number)  {
         for (let i = 1; i <= input; ++i) {
             this.testRules(i);
         }
+        this.renderOutput();
     }
 
-    renderOutput(testNumber: number, result: string) {
-        console.log(result || testNumber)
+    countRuleMatches(testNumber: number, result: string) {
+        if(result == "Fizz") {  
+            this.fizzCount++
+        }
+        if(result == "Buzz") {  
+            this.buzzCount++
+        }
+        if(result == "FizzBuzz") {  
+            this.fizzBuzzCount++
+        }
+        if(testNumber) {  
+            this.numberCount++
+        }
+    }
+
+    renderOutput() {
+        // console.log(result || testNumber)
+        console.log("antalet FizzBuzz: " + this.fizzBuzzCount);
+        console.log("antalet fizz: " + this.fizzCount);
+        console.log("antalet buzz: " + this.buzzCount);
+
     }
 
     addEventListeners() {
