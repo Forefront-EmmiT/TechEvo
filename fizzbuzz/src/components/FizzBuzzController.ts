@@ -1,4 +1,4 @@
-import { fizzBuzzRule, fizzRule, buzzRule } from "../rules/rules"
+import { ruleList } from "../rules/rules"
 
 export class FizzBuzzController {
     form: HTMLFormElement;
@@ -14,15 +14,9 @@ export class FizzBuzzController {
     }
 
     testRules(testNumber: number) {
-        if(fizzBuzzRule.condition(testNumber)) {
-            console.log("FizzBuzz")
-        } else if (fizzRule.condition(testNumber)) {
-            console.log("Fizz")
-        } else if (buzzRule.condition(testNumber)) {
-            console.log("Buzz")
-        } else {
-            console.log(testNumber)
-        }
+        const matchedRule = ruleList.filter(rule => rule.condition(testNumber))
+        const result = matchedRule.map(rule => rule.output).join('');
+        console.log(result || testNumber)
     }
 
     startCount(input: number)  {
