@@ -1,10 +1,11 @@
 export class FizzBuzzController {
     form: HTMLFormElement;
-    button: HTMLButtonElement | null;
 
     constructor(form: HTMLFormElement) {
         this.form = form;
-        this.button = form.querySelector('button');
+    }
+    
+    init() {
         this.addEventListeners();
     }
 
@@ -13,8 +14,9 @@ export class FizzBuzzController {
     } 
 
     addEventListeners() {
-        if(this.button) {
-            this.button.addEventListener('click', () => {
+        if(this.form) {
+            this.form.addEventListener('submit', (event) => {
+                event.preventDefault();
                 this.startCount();
             });
         }

@@ -7,5 +7,6 @@ if(app) {
   const formComponent = new FormComponent(app);
   if(formComponent.form) {
     const fizzBuzzController = new FizzBuzzController(formComponent.form)
+    fizzBuzzController.init();
   }
 }
