@@ -1,3 +1,5 @@
+import { fizzBuzzRule, fizzRule, buzzRule } from "../rules/rules"
+
 export class FizzBuzzController {
     form: HTMLFormElement;
     input: HTMLInputElement;
@@ -11,9 +13,21 @@ export class FizzBuzzController {
         this.addEventListeners();
     }
 
+    testRules(testNumber: number) {
+        if(fizzBuzzRule.condition(testNumber)) {
+            console.log("FizzBuzz")
+        } else if (fizzRule.condition(testNumber)) {
+            console.log("Fizz")
+        } else if (buzzRule.condition(testNumber)) {
+            console.log("Buzz")
+        } else {
+            console.log(testNumber)
+        }
+    }
+
     startCount(input: number)  {
         for (let i = 1; i <= input; ++i) {
-            console.log(i)
+            this.testRules(i);
         }
     } 
 
