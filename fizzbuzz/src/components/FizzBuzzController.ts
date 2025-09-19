@@ -12,7 +12,9 @@ export class FizzBuzzController {
     }
 
     startCount(input: number)  {
-        console.log(input)
+        for (let i = 1; i <= input; ++i) {
+            console.log(i)
+        }
     } 
 
     addEventListeners() {
