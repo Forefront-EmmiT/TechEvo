@@ -1,5 +1,5 @@
 import './style.css'
-import { FizzBuzzController } from './components/FizzBuzzController'
+import { FizzBuzzController } from './controllers/FizzBuzzController'
 import { FormComponent } from './components/FormComponent'
 
 const app = document.querySelector<HTMLDivElement>('#app');
