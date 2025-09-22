@@ -26,11 +26,11 @@ export class FizzBuzzController {
         for (const rule of ruleList) {
             if (rule.condition(testNumber)) {
                 const result = rule.output;
-                this.countRuleMatches(testNumber, result);
+                this.countRuleMatches(result);
                 return
             }
         }
-        this.countRuleMatches(testNumber, '')
+        this.countRuleMatches('')
     }
 
     startCount(input: number)  {
@@ -45,18 +45,19 @@ export class FizzBuzzController {
         this.renderOutput();
     }
 
-    countRuleMatches(testNumber: number, result: string) {
-        if(result == FIZZBUZZ_CONSTANTS.FIZZ) {  
-            this.fizzCount++
-        }
-        if(result == FIZZBUZZ_CONSTANTS.BUZZ) {  
-            this.buzzCount++
-        }
-        if(result == FIZZBUZZ_CONSTANTS.FIZZBUZZ) {  
-            this.fizzBuzzCount++
-        }
-        if(testNumber) {  
-            this.numberCount++
+    countRuleMatches(result: string) {
+        switch(result) {
+            case FIZZBUZZ_CONSTANTS.FIZZBUZZ:
+                this.fizzBuzzCount++
+                break
+            case FIZZBUZZ_CONSTANTS.FIZZ:
+                this.fizzCount++
+                break
+            case FIZZBUZZ_CONSTANTS.BUZZ:
+                this.buzzCount++
+                break
+            default:
+                this.numberCount++
         }
     }
 
