@@ -22,9 +22,14 @@ export class FizzBuzzController {
     }
 
     testRules(testNumber: number) {
-        const matchedRule = ruleList.filter(rule => rule.condition(testNumber))
-        const result = matchedRule.map(rule => rule.output).join('');
-        this.countRuleMatches(testNumber, result)
+        for (const rule of ruleList) {
+            if (rule.condition(testNumber)) {
+                const result = rule.output;
+                this.countRuleMatches(testNumber, result);
+                return
+            }
+        }
+        this.countRuleMatches(testNumber, '')
     }
 
     startCount(input: number)  {
