@@ -22,6 +22,13 @@ export class FizzBuzzController {
         this.addEventListeners();
     }
 
+    reset() {
+        this.fizzCount = 0;
+        this.buzzCount = 0;
+        this.fizzBuzzCount = 0;
+        this.numberCount = 0;
+    }
+
     testRules(testNumber: number) {
         for (const rule of ruleList) {
             if (rule.condition(testNumber)) {
@@ -34,11 +41,7 @@ export class FizzBuzzController {
     }
 
     startCount(input: number)  {
-        this.fizzCount = 0;
-        this.buzzCount = 0;
-        this.fizzBuzzCount = 0;
-        this.numberCount = 0;
-
+        this.reset()
         for (let i = 1; i <= input; ++i) {
             this.testRules(i);
         }
