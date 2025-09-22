@@ -1,4 +1,5 @@
 import { ruleList } from "../rules/rules"
+import { FIZZBUZZ_CONSTANTS } from '../constants/constants'
 
 export class FizzBuzzController {
     form: HTMLFormElement;
@@ -45,13 +46,13 @@ export class FizzBuzzController {
     }
 
     countRuleMatches(testNumber: number, result: string) {
-        if(result == "Fizz") {  
+        if(result == FIZZBUZZ_CONSTANTS.FIZZ) {  
             this.fizzCount++
         }
-        if(result == "Buzz") {  
+        if(result == FIZZBUZZ_CONSTANTS.BUZZ) {  
             this.buzzCount++
         }
-        if(result == "FizzBuzz") {  
+        if(result == FIZZBUZZ_CONSTANTS.FIZZBUZZ) {  
             this.fizzBuzzCount++
         }
         if(testNumber) {  
