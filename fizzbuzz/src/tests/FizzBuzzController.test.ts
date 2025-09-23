@@ -1,12 +1,18 @@
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { FizzBuzzController } from '../controllers/FizzBuzzController';
-import { FIZZBUZZ_CONSTANTS } from '../constants/constants';
+import { OutputComponent } from '../components/OutputComponent';
 
-test('Increase fizzBuzzCount by 1 when given FizzBuzz', () => {
+test('Calculate 15', () => {
     const mockForm = {} as HTMLFormElement;
     const inputForm = {} as HTMLInputElement;
-    const controller = new FizzBuzzController(mockForm, inputForm);
+    
+    const mockOutput = {
+        updateOutput: vi.fn()
+    } as unknown as OutputComponent;
 
-    controller.countRuleMatches(FIZZBUZZ_CONSTANTS.FIZZBUZZ);
-    expect(controller.fizzBuzzCount).toBe(1)
+    const controller = new FizzBuzzController(mockForm, inputForm, mockOutput);
+    
+    controller.startCount(15n);
+    expect(controller.fizzCount).toBe(5)
+    expect(controller.buzzCount).toBe(3)
 }) 
