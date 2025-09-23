@@ -11,7 +11,7 @@ if(app) {
   const outputComponent = new OutputComponent(app);
 
   if(formComponent.form) {
-    const fizzBuzzController = new FizzBuzzController(formComponent.form, formComponent.input)
+    const fizzBuzzController = new FizzBuzzController(formComponent.form, formComponent.input, outputComponent)
     fizzBuzzController.init();
   }
 }

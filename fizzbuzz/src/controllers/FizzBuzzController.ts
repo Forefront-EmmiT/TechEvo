@@ -1,5 +1,6 @@
 import { ruleList } from "../rules/rules"
 import { FIZZBUZZ_CONSTANTS } from '../constants/constants'
+import { OutputComponent } from '../components/OutputComponent'
 
 export class FizzBuzzController {
     form: HTMLFormElement;
@@ -8,14 +9,16 @@ export class FizzBuzzController {
     buzzCount: number;
     fizzBuzzCount: number;
     numberCount: number;
+    output: OutputComponent;
 
-    constructor(form: HTMLFormElement, input: HTMLInputElement) {
+    constructor(form: HTMLFormElement, input: HTMLInputElement, output: OutputComponent) {
         this.form = form;
         this.input = input;
         this.fizzCount = 0;
         this.buzzCount = 0;
         this.fizzBuzzCount = 0;
         this.numberCount = 0;
+        this.output = output;
     }
     
     init() {
@@ -65,10 +68,11 @@ export class FizzBuzzController {
     }
 
     renderOutput() {
-        console.log("antalet FizzBuzz: " + this.fizzBuzzCount);
-        console.log("antalet Fizz: " + this.fizzCount);
-        console.log("antalet Buzz: " + this.buzzCount);
-
+        this.output.updateOutput(
+            this.fizzBuzzCount,
+            this.fizzCount,
+            this.buzzCount
+        );
     }
 
     addEventListeners() {
