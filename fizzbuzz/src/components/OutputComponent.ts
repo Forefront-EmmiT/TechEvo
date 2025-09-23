@@ -12,6 +12,7 @@ export class OutputComponent {
         const outputElement = document.createElement('div');
         outputElement.id = 'output'
         outputElement.innerHTML = `
+            <h2>Result:</h2>
             <li id='fizz-el'>Fizz: 0</li>
             <li id='buzz-el'>Buzz: 0</li>
         `;

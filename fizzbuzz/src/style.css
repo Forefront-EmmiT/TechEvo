@@ -73,3 +73,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li {
+  list-style: none;
+}
