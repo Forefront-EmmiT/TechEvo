@@ -29,20 +29,9 @@ export class FizzBuzzController {
         this.numberCount = 0;
     }
 
-    testRules(testNumber: bigint) {
-        for (const rule of ruleList) {
-            if (rule.condition(testNumber)) {
-                const result = rule.output;
-                this.countRuleMatches(result);
-                return
-            }
-        }
-        this.countRuleMatches('')
-    }
-
     startCount(input: bigint)  {
         this.reset()
-        
+
         const counts = new Map<string, bigint>();
 
         for (const rule of ruleList) {
@@ -55,20 +44,7 @@ export class FizzBuzzController {
 
         this.renderOutput();
     }
-
-    countRuleMatches(result: string) {
-        switch(result) {
-            case FIZZBUZZ_CONSTANTS.FIZZ:
-                this.fizzCount++
-                break
-            case FIZZBUZZ_CONSTANTS.BUZZ:
-                this.buzzCount++
-                break
-            default:
-                this.numberCount++
-        }
-    }
-
+    
     renderOutput() {
         this.output.updateOutput(
             this.fizzCount,
