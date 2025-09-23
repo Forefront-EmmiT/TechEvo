@@ -25,7 +25,7 @@ export class OutputComponent {
         this.buzzEl = document.getElementById('buzz-el')!;
     }
 
-    updateOutput(input: number, fizz: number, buzz: number) {
+    updateOutput(input: string, fizz: number, buzz: number) {
         this.tallyEl.textContent = `Tally for n: ${input}`;
         this.fizzEl.textContent = `Fizz: ${fizz}`;
         this.buzzEl.textContent = `Buzz: ${buzz}`;
