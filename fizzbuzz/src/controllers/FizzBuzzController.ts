@@ -44,9 +44,10 @@ export class FizzBuzzController {
 
         this.renderOutput();
     }
-    
+
     renderOutput() {
         this.output.updateOutput(
+            this.input.value,
             this.fizzCount,
             this.buzzCount
         );
