@@ -7,7 +7,6 @@ export class FizzBuzzController {
     input: HTMLInputElement;
     fizzCount: number;
     buzzCount: number;
-    fizzBuzzCount: number;
     numberCount: number;
     output: OutputComponent;
 
@@ -16,7 +15,6 @@ export class FizzBuzzController {
         this.input = input;
         this.fizzCount = 0;
         this.buzzCount = 0;
-        this.fizzBuzzCount = 0;
         this.numberCount = 0;
         this.output = output;
     }
@@ -28,7 +26,6 @@ export class FizzBuzzController {
     reset() {
         this.fizzCount = 0;
         this.buzzCount = 0;
-        this.fizzBuzzCount = 0;
         this.numberCount = 0;
     }
 
@@ -53,9 +50,6 @@ export class FizzBuzzController {
 
     countRuleMatches(result: string) {
         switch(result) {
-            case FIZZBUZZ_CONSTANTS.FIZZBUZZ:
-                this.fizzBuzzCount++
-                break
             case FIZZBUZZ_CONSTANTS.FIZZ:
                 this.fizzCount++
                 break
@@ -69,7 +63,6 @@ export class FizzBuzzController {
 
     renderOutput() {
         this.output.updateOutput(
-            this.fizzBuzzCount,
             this.fizzCount,
             this.buzzCount
         );
