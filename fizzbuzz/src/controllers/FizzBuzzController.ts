@@ -1,5 +1,4 @@
 import { ruleList } from "../rules/rules"
-import { FIZZBUZZ_CONSTANTS } from '../constants/constants'
 import { OutputComponent } from '../components/OutputComponent'
 
 export class FizzBuzzController {
@@ -7,7 +6,6 @@ export class FizzBuzzController {
     input: HTMLInputElement;
     fizzCount: number;
     buzzCount: number;
-    numberCount: number;
     output: OutputComponent;
 
     constructor(form: HTMLFormElement, input: HTMLInputElement, output: OutputComponent) {
@@ -15,7 +13,6 @@ export class FizzBuzzController {
         this.input = input;
         this.fizzCount = 0;
         this.buzzCount = 0;
-        this.numberCount = 0;
         this.output = output;
     }
     
@@ -26,7 +23,6 @@ export class FizzBuzzController {
     reset() {
         this.fizzCount = 0;
         this.buzzCount = 0;
-        this.numberCount = 0;
     }
 
     startCount(input: bigint)  {
